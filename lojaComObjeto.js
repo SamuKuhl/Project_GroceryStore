@@ -70,5 +70,6 @@ if(nomeDoProduto.value.toLowerCase() == 'banana'){
     produto = 0
     controle ++
 }
+
 carrinho.push(produto)
 }
