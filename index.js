@@ -1,3 +1,7 @@
+let valorTotal = document.getElementById("valorTotal")
+let nomeDoProduto = document.getElementById("nomeDoProduto");
+let valorProduto = document.getElementById("valorProduto");
+//chamadas
 let maca = 3.5;
 let banana = 8.90;
 let laranja = 4.95;
@@ -20,7 +24,7 @@ let nectarina = 7.18;
 let seriguela = 2.6;
 let figo = 56;
 let melancia = 19;
-
+// Let produtos
 let contadorDeMaca = 0
 let contadorDeBanana = 0
 let contadorDeLimao = 0
@@ -41,31 +45,55 @@ let contadorDeNectarina = 0
 let contadorDeSeriguela = 0
 let contadorDeFigo = 0
 let contadorDeMelancia = 0
-let carrinho = []
+let contadorDeLaranja = 0;
+let contadorDeMamao = 0;
 
-let nomeDoProduto = document.getElementById("nomeDoProduto");
- 
-let valorProduto = document.getElementById("valorProduto");
+let carrinho = []
+// Let contadores
+let precoTotal = 0
+let totalMaca = 0
+let totalBanana = 0;
+let totalLaranja = 0;
+let totalMamao = 0;
+let totalLimao = 0;
+let totalAbacate = 0;
+let totalKiwi = 0;
+let totalJamelao = 0;
+let totalPera = 0;
+let totalCaqui = 0;
+let totalMorango = 0;
+let totalUva = 0;
+let totalAcerola = 0;
+let totalAmeixa = 0;
+let totalGoiaba = 0;
+let totalJaca = 0;
+let totalMaracuja = 0;
+let totalPitaya = 0;
+let totalNectarina = 0;
+let totalSeriguela = 0;
+let totalFigo = 0;
+let totalMelancia = 0;
+
 
 function valores(){
    switch(nomeDoProduto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")){
         case 'maca':
-            valorProduto.innerHTML= "O valor da maçã é R$" + banana.toFixed(2)
+            valorProduto.innerHTML= "O valor da maçã é R$" + maca.toFixed(2)
             break
         case 'banana':
             valorProduto.innerHTML= "O valor da banana é R$" + banana.toFixed(2)
             break
         case 'laranja':
-            valorProduto.innerHTML= "O valor da laranja é R$" + banana.toFixed(2)
+            valorProduto.innerHTML= "O valor da laranja é R$" + laranja.toFixed(2)
             break
         case 'mamao':
-            valorProduto.innerHTML= "O valor da mamão é R$" + banana.toFixed(2)
+            valorProduto.innerHTML= "O valor da mamão é R$" + mamao.toFixed(2)
             break
         case 'limao':
-            valorProduto.innerHTML= "O valor da limão é R$" + banana.toFixed(2)
+            valorProduto.innerHTML= "O valor da limão é R$" + limao.toFixed(2)
             break
         case 'abacate':
-            valorProduto.innerHTML= "O valor da abacate é R$" + banana.toFixed(2)
+            valorProduto.innerHTML= "O valor da abacate é R$" + abacate.toFixed(2)
             break
         case 'kiwi':
             valorProduto.innerHTML= "O valor da kiwi é R$" + kiwi.toFixed(2)
@@ -121,7 +149,7 @@ function valores(){
 }
 
 function addCarrinho(){
-     if (nomeDoProduto.value == 'maca'.toLowerCase()) {
+     if (nomeDoProduto.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == 'maca'.toLowerCase()) {
 
      contadorDeMaca ++;
      carrinho.push(nomeDoProduto.value)
@@ -227,5 +255,35 @@ function addCarrinho(){
 
 }
 
+function exibirPrecoTotal() {
+totalMaca = contadorDeMaca * maca;
+totalBanana = contadorDeBanana * banana;
+totalLaranja = contadorDeLaranja * laranja;
+totalMamao = contadorDeMamao * mamao;
+totalLimao = contadorDeLimao * limao;
+totalAbacate = contadorDeAbacate * abacate;
+totalKiwi = contadorDeKiwi * kiwi;
+totalJamelao = contadorDeJamelao * jamelao;
+totalPera = contadorDePera * pera;
+totalCaqui = contadorDeCaqui * caqui;
+totalMorango = contadorDeMorango * morango;
+totalUva = contadorDeUva * uva
+totalAcerola = contadorDeAcerola * acerola;
+totalAmeixa = contadorDeAmeixa * ameixa;
+totalGoiaba = contadorDeGoiaba * goiaba;
+totalJaca = contadorDeJaca * jaca;
+totalMaracuja = contadorDeMaracuja * maracuja;
+totalPitaya = contadorDePitaya * pitaya;
+totalNectarina = contadorDeNectarina * nectarina;
+totalSeriguela = contadorDeSeriguela * seriguela;
+totalFigo = contadorDeFigo * figo;
+totalMelancia = contadorDeMelancia * melancia;
+
+let totalFinal = totalMaca + totalBanana + totalLaranja + totalMamao + totalLimao + totalAbacate + totalKiwi + totalJamelao + totalPera + totalCaqui + totalMorango + totalUva + totalAcerola + totalAmeixa + totalGoiaba + totalJaca + totalMaracuja + totalPitaya + totalNectarina + totalSeriguela + totalFigo + totalMelancia;
 
 
+let totalDeItens = contadorDeMaca + contadorDeBanana + contadorDeLaranja + contadorDeMamao + contadorDeLimao + contadorDeAbacate + contadorDeKiwi + contadorDeJamelao + contadorDePera + contadorDeCaqui + contadorDeMorango + contadorDeUva + contadorDeAcerola + contadorDeAmeixa + contadorDeGoiaba + contadorDeJaca + contadorDeMaracuja + contadorDePitaya + contadorDeNectarina + contadorDeSeriguela + contadorDeFigo + contadorDeMelancia;
+
+valorTotal.innerHTML = `Total de itens no carrinho é: ${totalDeItens}\n
+valor total da compra é ${totalFinal}`
+}

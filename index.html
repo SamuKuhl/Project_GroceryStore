@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercearia do Alves</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <H1>Mercearia do Alves</H1>
-    <H4>Produtos disponíveis</H4>
+    <h1 class="color-changing-text">Mercearia do Alves</h1>
+    <h4>Produtos disponíveis</h4>
     <ul>
         <li>Maçã</li>
         <li>Banana</li>
@@ -31,21 +32,20 @@
         <li>Nectarina</li>
         <li>Seriguela</li>
         <li>Figo</li>
-
+        <li>Melancia</li>
     </ul>
+    
     <input type="text" id="nomeDoProduto" placeholder="Digite o nome do produto">
-
     <button onclick="valores()">Consultar valor</button>
-
     <div id="valorProduto"></div>
-
+    
     <br><br>
-
+    
     <button onclick="addCarrinho()">Colocar no carrinho</button>
-    <button onclick="pagmento()">Finalizar compra</button>
-
+    <button onclick="exibirPrecoTotal()">Finalizar compra</button>
+    <br><br>
+    <div id="valorTotal"></div>
 
     <script src="index.js"></script>
 </body>
 </html>
-

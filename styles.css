@@ -1,0 +1,13 @@
+.color-changing-text {
+    font-size: 24px;
+    font-weight: bold;
+    animation: changeColor 5s infinite; /* Chama a animação changeColor */
+}
+
+@keyframes changeColor {
+    0% { color: red; } /* Começa com a cor vermelha */
+    25% { color: blue; } /* Após 25% do tempo, alterna para azul */
+    50% { color: green; } /* Após 50% do tempo, alterna para verde */
+    75% { color: orange; } /* Após 75% do tempo, alterna para laranja */
+    100% { color: purple; } /* Volta para a cor inicial (roxo) */
+}
