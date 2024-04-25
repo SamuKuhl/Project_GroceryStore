@@ -1,68 +1,69 @@
 let nomeDoProduto = document.getElementById ('nomeDoProduto');
 let valorProduto = document.getElementById ('valorDoProduto');
-let valorcarrinho = document.getElementById('valorcarrinho')
-//chamadas
+let valorCarrinho = document.getElementById('valorCarrinho')
 
+//chamadas
+validadorDeNome = () => {return nomeDoProduto.value.toLowerCase()};     
+//aerofunction
 let carrinho = [];
 let totalcarrinho = Number();
 let controle = 0;
 let totalItens = 0;
 
-function frutaEscolhida(nomeDoProduto){
-     nomeDoProduto = nomeDoProduto.value.toLowerCase();
+function frutaEscolhida(){
 
-if(nomeDoProduto == 'banana'){
-    return `O valor do item ${nomeDoProduto} é R$5,99`
+if(validadorDeNome() == 'banana'){
+    return `O valor do item ${validadorDeNome()} é R$5,99`
 }
-if(nomeDoProduto == 'laranja'){
-    return `O valor do item ${nomeDoProduto} é R$4,29`
+if(validadorDeNome() == 'laranja'){
+    return `O valor do item ${validadorDeNome()} é R$4,29`
 }
-if(nomeDoProduto == 'maca'){
-    return `O valor do item ${nomeDoProduto} é R$7,89`
+if(validadorDeNome() == 'maca'){
+    return `O valor do item ${validadorDeNome()} é R$7,89`
 }
-if(nomeDoProduto == 'abacate'){
-    return `O valor do item ${nomeDoProduto} é R$6,00`
+if(validadorDeNome() == 'abacate'){
+    return `O valor do item ${validadorDeNome()} é R$6,00`
 }
-if(nomeDoProduto == 'pera'){
-    return `O valor do item ${nomeDoProduto} é R$4,5`
+if(validadorDeNome() == 'pera'){
+    return `O valor do item ${validadorDeNome()} é R$4,5`
 }
 }
 
 valores = () => {
-     valorProduto.innerHTML = (frutaEscolhida(nomeDoProduto))
+     valorProduto.innerHTML = (frutaEscolhida())
 }
 
 function addCarrinho(){
 let produto;
 
-if(nomeDoProduto.value.toLowerCase() == 'banana'){
+if(validadorDeNome() == 'banana'){
     produto = {
-        nome:nomeDoProduto.value.toLowerCase(),
+        nome:validadorDeNome(),
         preco:5.99
     }
     totalItens ++
 
-}else if(nomeDoProduto.value.toLowerCase() == 'laranja'){
+}else if(validadorDeNome() == 'laranja'){
     produto = {
-        nome:nomeDoProduto.value.toLowerCase(),
+        nome:validadorDeNome(),
         preco: 4.98
     }
     totalItens ++
-}else if(nomeDoProduto.value.toLowerCase() == 'maca'){
+}else if(validadorDeNome() == 'maca'){
     produto = {
-        nome:nomeDoProduto.value.toLowerCase(),
+        nome:validadorDeNome(),
         preco: 5.25
     }
     totalItens ++
-}else if(nomeDoProduto.value.toLowerCase() == 'abacate'){
+}else if(validadorDeNome() == 'abacate'){
     produto = {
-        nome:nomeDoProduto.value.toLowerCase(),
+        nome:validadorDeNome(),
         preco: 8
     }
     totalItens ++
-}else if(nomeDoProduto.value.toLowerCase() == 'pera'){
+}else if(validadorDeNome() == 'pera'){
     produto = {
-        nome:nomeDoProduto.value.toLowerCase(),
+        nome:validadorDeNome(),
         preco: 7.75
     }
     totalItens ++
@@ -72,4 +73,27 @@ if(nomeDoProduto.value.toLowerCase() == 'banana'){
 }
 
 carrinho.push(produto)
+console.log(carrinho)
+
+if (carrinho !=0){
+ for (i=controle; i<carrinho.length; i++){
+    totalcarrinho += carrinho[i].preco
+    controle ++
+
+
+
+
+}
+}else{
+    valorCarrinho.innerHTML = ('Carrinho vazio')
+}
+}
+
+function totalCompra(){
+    if(totalcarrinho !=0){
+    valorCarrinho.innerHTML = `Total de itens no carrinho: ${totalItens}<br>Valor Total: R$${totalcarrinho.toFixed(2)}`
+}else{
+  valorCarrinho.innerHTML = "Carrinho Vazio"
+
+}
 }
